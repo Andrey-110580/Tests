@@ -15,7 +15,7 @@ namespace ConsoleMyClass1
         public string LostName;
         public string Email;
         public string PhoneNumber;
-        public int age;
+        public int Age;
         public string Title;
 
 
