@@ -16,6 +16,7 @@ namespace ConsoleMyClass1
         public string Email;
         public string PhoneNumber;
         public int Age;
+        public DateTime Birthday;
         public string Title;
 
 
