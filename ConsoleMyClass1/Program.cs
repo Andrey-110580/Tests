@@ -6,6 +6,8 @@
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("privet ot Maksa");
+
             Person pers1 = new Person();
             pers1.Id = 1;
             pers1.FirstName = "Andrey";
@@ -49,7 +51,7 @@
 
         static void GetPrtson(Person pers)
         {
-            if (pers == null) 
+            if (pers == null)
             {
                 return;
             }
