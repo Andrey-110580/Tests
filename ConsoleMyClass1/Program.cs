@@ -6,7 +6,7 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("privet ot Maksa");
+            
 
             Person pers1 = new Person();
             pers1.Id = 1;
