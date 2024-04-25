@@ -9,18 +9,18 @@ namespace EmployeeToFile
 
     public class Employee
     {
-        private int _id { get; set; }
-        private string _FirstName { get; set; }
-        private string _SecondName { get; set; }
-        private string _LastName { get; set; }
-        private string _Pozition { get; set; }
-        private string _Country { get; set; }
-        private string _City { get; set; }
-        private string _Email { get; set; }
-        private string _Phone { get; set; }
-        private string _PostalCode { get; set; }
-        private DateTime _BirthDate { get; set; }
-        private bool _IsWork { get; set; }
+        public int _id;
+        public string _FirstName;
+        public string _SecondName;
+        public string _LastName;
+        public string _Pozition;
+        public string _Country;
+        public string _City;
+        public string _Email;
+        public string _Phone;
+        public string _PostalCode;
+        public DateTime _BirthDate;
+        public bool _IsWork; 
 
 
 
