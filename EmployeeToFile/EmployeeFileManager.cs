@@ -24,16 +24,17 @@ namespace EmployeeToFile
 
         public static List<Employee> Import()
         {
+            List<Employee> employeesListFromFile = new List<Employee>();
             FileInfo fileInf = new FileInfo(path);
             if (fileInf.Exists)
             {
                 string[] fileText = File.ReadAllLines(path);
 
-                List<Employee> employeesListFromFile = new List<Employee>(fileText.Length);
 
                 foreach (var item in fileText)
                 {                   
-                    Employee.Deserialize(item);
+                   Employee empl=  Employee.Deserialize(item);
+                    employeesListFromFile.Add(empl);
                 }
                 
             }
