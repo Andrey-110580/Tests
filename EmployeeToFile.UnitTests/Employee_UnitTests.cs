@@ -2,13 +2,8 @@ namespace EmployeeToFile.UnitTests;
 
 public class Employee_UnitTests
 {
-    //[SetUp]
-    //public void Setup()
-    //{
-    //}
-
     [Test]
-    public void Test1()
+    public void Serialize_Ok()
     {
         var emp = new Employee()
         {
@@ -33,9 +28,19 @@ public class Employee_UnitTests
         Assert.That(result, Is.EqualTo(expectedResult));
     }
 
-    //[Test]
-    //public void Test2()
-    //{
-    //    Assert.Pass();
-    //}
+    [Test]
+    public void Serialize_ThrowsException()
+    {
+        var emp = new Employee()
+        {
+            _BirthDate = new DateTime(1700, 5, 12)
+        };
+
+        var ex = Assert.Throws<ArgumentException>(() =>
+        {
+            emp.Serialize();
+        });
+
+        Assert.That(ex.Message, Is.EqualTo("Invalid BirthDate"));
+    }
 }

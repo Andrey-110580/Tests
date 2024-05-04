@@ -21,12 +21,18 @@ namespace EmployeeToFile
 
         public string Serialize()
         {
+            if (_BirthDate < new DateTime(1900, 1, 1))
+            {
+                throw new ArgumentException("Invalid BirthDate");
+            }
+
             return _id.ToString() + ";" + _FirstName + ";" + _SecondName + ";" + _LastName + ";" + _Position
                 + ";" + _Country + ";" + _City + ";" + _Email + ";" + _Phone + ";"
                 + _PostalCode + ";" + _BirthDate.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture) + ";"
                 + _IsWork;
         }
 
+        //TODO: Write 2 Unit Tests: 1 Ok , 1 Fail
         public static Employee Deserialize(string str)
         {
             string[] data = str.Split(';');
