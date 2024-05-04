@@ -1,51 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EmployeeToFile
+﻿namespace EmployeeToFile
 {
     public class EmployeeFileManager
     {
-        const string path = @"G:\app\export.txt";
-        private string DataToText;
+        private const string path = "G:/app/export.txt";
 
-        private string[] EmplArr = new string[Employee.Counter];
-
-        // private List<Employee> employees = new List<Employee>();
-
-
-       // static void AddToList (List<Employee> employees )
-      //  {
-      //      employees.Add ( new Employee() );
-      //  }
-
-        public  void Export(Employee empl)
+        //TODO: why 1 employee? We expect list/array!
+        public void Export(Employee empl)
         {
-            DataToText = empl.Serialise();
-            File.AppendAllText(path, DataToText);
-            Console.WriteLine(  "Файл создан");
+            var dataToText = empl.Serialize();
+            File.AppendAllText(path, dataToText);
+            //TODO: remove console write line
+            Console.WriteLine("Файл создан");
         }
 
-        public static void Import() 
+        //return List/array of Employee
+        public static void Import()
         {
             FileInfo fileInf = new FileInfo(path);
             if (fileInf.Exists)
             {
+                //Pls use ReadAllLines
                 string fileText = File.ReadAllText(path);
 
-                Console.WriteLine( fileText );
+                Console.WriteLine(fileText);
 
+                //you don't need it, bacause you will have string[]
                 string[] dateFileArr = fileText.Split('\n');
                 foreach (var item in dateFileArr)
-        {
-                    Employee.Deserialise(item);
+                {
+                    Employee.Deserialize(item);
                 }
             }
-            
         }
-
     }
 }
