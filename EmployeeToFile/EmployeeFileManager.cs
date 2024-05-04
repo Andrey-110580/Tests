@@ -1,36 +1,43 @@
-﻿namespace EmployeeToFile
+﻿using System.Collections.Generic;
+
+namespace EmployeeToFile
 {
     public class EmployeeFileManager
     {
         private const string path = "G:/app/export.txt";
 
         //TODO: why 1 employee? We expect list/array!
-        public void Export(Employee empl)
+
+       List<Employee> employeesList = new List<Employee>();
+
+        public void InsertEmployeeToList(Employee employee) 
         {
-            var dataToText = empl.Serialize();
-            File.AppendAllText(path, dataToText);
-            //TODO: remove console write line
-            Console.WriteLine("Файл создан");
+           employeesList.Add(employee);
         }
 
-        //return List/array of Employee
-        public static void Import()
+        public void Export(Employee employeesList)
+        {
+            var dataToText = employeesList.Serialize();
+            File.AppendAllText(path, dataToText);
+
+        }
+
+        public static List<Employee> Import()
         {
             FileInfo fileInf = new FileInfo(path);
             if (fileInf.Exists)
             {
-                //Pls use ReadAllLines
-                string fileText = File.ReadAllText(path);
+                string[] fileText = File.ReadAllLines(path);
 
-                Console.WriteLine(fileText);
+                List<Employee> employeesListFromFile = new List<Employee>(fileText.Length);
 
-                //you don't need it, bacause you will have string[]
-                string[] dateFileArr = fileText.Split('\n');
-                foreach (var item in dateFileArr)
-                {
+                foreach (var item in fileText)
+                {                   
                     Employee.Deserialize(item);
                 }
+                
             }
+            return employeesListFromFile;
         }
     }
 }

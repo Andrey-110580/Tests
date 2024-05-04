@@ -7,18 +7,18 @@ public class Employee_UnitTests
     {
         var emp = new Employee()
         {
-            _id = 1,
-            _BirthDate = new DateTime(1990, 5, 12),
-            _City = "Zagreb",
-            _Country = "HR",
-            _Email = "zagrebEmployee@email.com",
-            _FirstName = "testName",
-            _IsWork = true,
-            _LastName = "testLastName",
-            _Phone = "+3859888994653",
-            _Position = "pos1",
-            _PostalCode = "12345",
-            _SecondName = "testSecondName"
+            Id = 1,
+            BirthDate = new DateTime(1990, 5, 12),
+            City = "Zagreb",
+            Country = "HR",
+            Email = "zagrebEmployee@email.com",
+            FirstName = "testName",
+            IsWork = true,
+            LastName = "testLastName",
+            Phone = "+3859888994653",
+            Position = "pos1",
+            PostalCode = "12345",
+            SecondName = "testSecondName"
         };
 
         var result = emp.Serialize();
@@ -33,7 +33,7 @@ public class Employee_UnitTests
     {
         var emp = new Employee()
         {
-            _BirthDate = new DateTime(1700, 5, 12)
+            BirthDate = new DateTime(1700, 5, 12)
         };
 
         var ex = Assert.Throws<ArgumentException>(() =>
@@ -50,43 +50,52 @@ public class Employee_UnitTests
     {
         string dataString = "1;testName;testSecondName;testLastName;pos1;"
                 + "HR;Zagreb;zagrebEmployee@email.com;+3859888994653;12345;05/12/1990;True";
-        var emp1 = Employee.Deserialize (dataString);
+        var emp1 = Employee.Deserialize(dataString);
 
         var empExpected = new Employee()
         {
-            _id = 1,
-            _BirthDate = new DateTime(1990, 5, 12),
-            _City = "Zagreb",
-            _Country = "HR",
-            _Email = "zagrebEmployee@email.com",
-            _FirstName = "testName",
-            _IsWork = true,
-            _LastName = "testLastName",
-            _Phone = "+3859888994653",
-            _Position = "pos1",
-            _PostalCode = "12345",
-            _SecondName = "testSecondName"
+           Id = 1,
+            BirthDate = new DateTime(1990, 5, 12),
+            City = "Zagreb",
+            Country = "HR",
+            Email = "zagrebEmployee@email.com",
+            FirstName = "testName",
+            IsWork = true,
+            LastName = "testLastName",
+            Phone = "+3859888994653",
+            Position = "pos1",
+            PostalCode = "12345",
+            SecondName = "testSecondName"
         };
 
-        Assert.That(emp1._id, Is.EqualTo(empExpected._id));
-        Assert.That(emp1._FirstName, Is.EqualTo(empExpected._FirstName));
-        Assert.That(emp1._SecondName, Is.EqualTo(empExpected._SecondName));
-        Assert.That(emp1._LastName, Is.EqualTo(empExpected._LastName));
-        Assert.That(emp1._Position, Is.EqualTo(empExpected._Position));
-        Assert.That(emp1._Country, Is.EqualTo(empExpected._Country));
-        Assert.That(emp1._City, Is.EqualTo(empExpected._City));
-        Assert.That(emp1._Email, Is.EqualTo(empExpected._Email));
-        Assert.That(emp1._Phone, Is.EqualTo(empExpected._Phone));
-        Assert.That(emp1._PostalCode, Is.EqualTo(empExpected._PostalCode));
-        Assert.That(emp1._BirthDate, Is.EqualTo(empExpected._BirthDate));
-        Assert.That(emp1._IsWork, Is.EqualTo(empExpected._IsWork));
+        Assert.That(emp1.Id, Is.EqualTo(empExpected.Id));
+        Assert.That(emp1.FirstName, Is.EqualTo(empExpected.FirstName));
+        Assert.That(emp1.SecondName, Is.EqualTo(empExpected.SecondName));
+        Assert.That(emp1.LastName, Is.EqualTo(empExpected.LastName));
+        Assert.That(emp1.Position, Is.EqualTo(empExpected.Position));
+        Assert.That(emp1.Country, Is.EqualTo(empExpected.Country));
+        Assert.That(emp1.City, Is.EqualTo(empExpected.City));
+        Assert.That(emp1.Email, Is.EqualTo(empExpected.Email));
+        Assert.That(emp1.Phone, Is.EqualTo(empExpected.Phone));
+        Assert.That(emp1.PostalCode, Is.EqualTo(empExpected.PostalCode));
+        Assert.That(emp1.BirthDate, Is.EqualTo(empExpected.BirthDate));
+        Assert.That(emp1.IsWork, Is.EqualTo(empExpected.IsWork));
     }
 
     [Test]
     public void Deserialize_ThrowsException()
     {
-        string dataString = "1;123;testSecondName;testLastName;pos1;"
+        string dataString = "1; 245;testSecondName;testLastName;pos1;"
                  + "HR;Zagreb;zagrebEmployee@email.com;+3859888994653;12345;05/12/1990;True";
-        var emp1 = Employee.Deserialize(dataString);
+        
+
+        var ex = Assert.Throws<ArgumentException>(() =>
+        {
+            var emp1 = Employee.Deserialize(dataString);
+        });
+
+        Assert.That(ex.Message, Is.EqualTo("Invalid FirstName"));
+
+
     }
 }

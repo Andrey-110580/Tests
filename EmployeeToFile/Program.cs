@@ -7,10 +7,10 @@
             Console.WriteLine("Hello, World!");
 
             var e1 = new Employee();
-            e1._FirstName = "dsd";
+            e1.FirstName = "dsd";
 
             //
-            Console.WriteLine(e1._FirstName);
+            Console.WriteLine(e1.FirstName);
             var e2 = new Employee();
         }
     }

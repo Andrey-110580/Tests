@@ -5,31 +5,31 @@ namespace EmployeeToFile
     public class Employee
     {
         //TODO: Remove _ and make _id => Id
-        public int _id;
+        public int Id;
 
-        public string _FirstName;
-        public string _SecondName;
-        public string _LastName;
-        public string _Position;
-        public string _Country;
-        public string _City;
-        public string _Email;
-        public string _Phone;
-        public string _PostalCode;
-        public DateTime _BirthDate;
-        public bool _IsWork;
+        public string FirstName;
+        public string SecondName;
+        public string LastName;
+        public string Position;
+        public string Country;
+        public string City;
+        public string Email;
+        public string Phone;
+        public string PostalCode;
+        public DateTime BirthDate;
+        public bool IsWork;
 
         public string Serialize()
         {
-            if (_BirthDate < new DateTime(1900, 1, 1))
+            if (BirthDate < new DateTime(1900, 1, 1))
             {
                 throw new ArgumentException("Invalid BirthDate");
             }
 
-            return _id.ToString() + ";" + _FirstName + ";" + _SecondName + ";" + _LastName + ";" + _Position
-                + ";" + _Country + ";" + _City + ";" + _Email + ";" + _Phone + ";"
-                + _PostalCode + ";" + _BirthDate.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture) + ";"
-                + _IsWork;
+            return Id.ToString() + ";" + FirstName + ";" + SecondName + ";" + LastName + ";" + Position
+                + ";" + Country + ";" + City + ";" + Email + ";" + Phone + ";"
+                + PostalCode + ";" + BirthDate.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture) + ";"
+                + IsWork;
         }
 
         //TODO: Write 2 Unit Tests: 1 Ok , 1 Fail
@@ -38,22 +38,30 @@ namespace EmployeeToFile
             string[] data = str.Split(';');
             var emp = new Employee();
 
-            emp._id = Convert.ToInt32(data[0]);
-            emp._FirstName = data[1];
-            if (emp._FirstName == null)
+            emp.Id = Convert.ToInt32(data[0]);
+            emp.FirstName = data[1];
+            if (emp.FirstName == null)
             {
                 throw new ArgumentException("Invalid FirstName");
             }
-            emp._SecondName = data[2];
-            emp._LastName = data[3];
-            emp._Position = data[4];
-            emp._Country = data[5];
-            emp._City = data[6];
-            emp._Email = data[7];
-            emp._Phone = data[8];
-            emp._PostalCode = data[9];
-            emp._BirthDate = Convert.ToDateTime(data[10]);
-            emp._IsWork = Convert.ToBoolean(data[11]);
+            foreach (var item in emp.FirstName)
+            {
+                if(!char.IsLetter(item))
+                {
+                    throw new ArgumentException("Invalid FirstName");
+                }
+              
+            }
+            emp.SecondName = data[2];
+            emp.LastName = data[3];
+            emp.Position = data[4];
+            emp.Country = data[5];
+            emp.City = data[6];
+            emp.Email = data[7];
+            emp.Phone = data[8];
+            emp.PostalCode = data[9];
+            emp.BirthDate = Convert.ToDateTime(data[10]);
+            emp.IsWork = Convert.ToBoolean(data[11]);
 
             return emp;
         }
