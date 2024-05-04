@@ -4,7 +4,9 @@ namespace EmployeeToFile
 {
     public class Employee
     {
+        //TODO: Remove _ and make _id => Id
         public int _id;
+
         public string _FirstName;
         public string _SecondName;
         public string _LastName;
@@ -21,7 +23,8 @@ namespace EmployeeToFile
         {
             return _id.ToString() + ";" + _FirstName + ";" + _SecondName + ";" + _LastName + ";" + _Position
                 + ";" + _Country + ";" + _City + ";" + _Email + ";" + _Phone + ";"
-                + _PostalCode + ";" + _BirthDate.ToString(CultureInfo.InvariantCulture) + ";" + _IsWork;
+                + _PostalCode + ";" + _BirthDate.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture) + ";"
+                + _IsWork;
         }
 
         public static Employee Deserialize(string str)
