@@ -40,7 +40,7 @@ namespace EmployeeToFile
 
                 string[] dateFileArr = fileText.Split('\n');
                 foreach (var item in dateFileArr)
-                {
+        {
                     Employee.Deserialise(item);
                 }
             }

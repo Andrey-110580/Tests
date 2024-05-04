@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace EmployeeToFile
 {
-     public class Employee
+
+    public class Employee
     {
         private static int _Counter; // static , что бы переменная была доступна всем экземплярам и использовать переменную, без экземпляра
         public static int Counter
@@ -29,16 +30,16 @@ namespace EmployeeToFile
         public string _Phone;
         public string _PostalCode;
         public DateTime _BirthDate;
-        public bool _IsWork ;
+        public bool _IsWork; 
 
 
 
 
-        public string  Serialise()
+        public string Serialize()
         {
             string _IdStr = _id.ToString();
-           // string _BirthStr = _BirthDate.ToString();
-           // string _IsWorkStr = _IsWork.ToString();
+            // string _BirthStr = _BirthDate.ToString();
+            // string _IsWorkStr = _IsWork.ToString();
             string _TextInfo = _IdStr + ";" + _FirstName + ";" + _SecondName + ";" + _LastName + ";" + _Pozition + ";" + _Country + ";" +
                 _City + ";" + _Email + ";" + _Phone + ";" + _PostalCode + ";" + _BirthDate + ";" + _IsWork;
 
@@ -46,17 +47,17 @@ namespace EmployeeToFile
 
         }
 
-        public static Employee Deserialise (string str)
+        public static Employee Deserialize(string str)
         {
- 
+
             string[] data = str.Split(';');
             Employee emp = new Employee();
 
-            emp._id = Convert.ToInt32 (data[0]);
+            emp._id = Convert.ToInt32(data[0]);
             emp._FirstName = data[1];
             emp._SecondName = data[2];
             emp._LastName = data[3];
-            emp._Pozition = data[4];    
+            emp._Pozition = data[4];
             emp._Country = data[5];
             emp._City = data[6];
             emp._Email = data[7];
