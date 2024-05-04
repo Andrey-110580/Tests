@@ -40,6 +40,10 @@ namespace EmployeeToFile
 
             emp._id = Convert.ToInt32(data[0]);
             emp._FirstName = data[1];
+            if (emp._FirstName == null)
+            {
+                throw new ArgumentException("Invalid FirstName");
+            }
             emp._SecondName = data[2];
             emp._LastName = data[3];
             emp._Position = data[4];
