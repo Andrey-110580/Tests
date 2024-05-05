@@ -15,7 +15,7 @@ namespace EmployeeToFile
            employeesList.Add(employee);
         }
 
-        public void Export(Employee employeesList)
+        public static void Export(Employee employeesList)
         {
             var dataToText = employeesList.Serialize();
             File.AppendAllText(path, dataToText);
