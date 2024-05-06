@@ -8,18 +8,23 @@ namespace EmployeeToFile
 
         //TODO: why 1 employee? We expect list/array!
 
-       List<Employee> employeesList = new List<Employee>();
+        List<Employee> employeesList = new List<Employee>();
 
-        public void InsertEmployeeToList(Employee employee) 
+        public void InsertEmployeeToList(Employee employee)
         {
-           employeesList.Add(employee);
+            employeesList.Add(employee);
         }
 
-        public static void Export(Employee employeesList)
+        public static void Export(List<Employee> employeesListt)
         {
-            var dataToText = employeesList.Serialize();
-            File.AppendAllText(path, dataToText);
+            List<string> FromEmployeeToText = new List<string>();
 
+            for (int i = 0; i < employeesListt.Count; i++)
+            {
+                FromEmployeeToText[i] = employeesListt[i].Serialize();
+            }
+
+            File.AppendAllLines(path, FromEmployeeToText);
         }
 
         public static List<Employee> Import()
@@ -32,11 +37,11 @@ namespace EmployeeToFile
 
 
                 foreach (var item in fileText)
-                {                   
-                   Employee empl=  Employee.Deserialize(item);
+                {
+                    Employee empl = Employee.Deserialize(item);
                     employeesListFromFile.Add(empl);
                 }
-                
+
             }
             return employeesListFromFile;
         }

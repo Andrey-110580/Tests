@@ -43,10 +43,11 @@ namespace EmployeeToFile.UnitTests
                 PostalCode = "123452",
                 SecondName = "testSecondName2"
             };
+          
             emplList.Add(emp);
             emplList.Add(emp2);
+            EmployeeFileManager.Export(emplList);           
 
-            var empListFile = Employee.
         }
     }
 }

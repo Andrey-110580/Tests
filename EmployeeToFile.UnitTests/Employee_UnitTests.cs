@@ -54,7 +54,7 @@ public class Employee_UnitTests
 
         var empExpected = new Employee()
         {
-           Id = 1,
+            Id = 1,
             BirthDate = new DateTime(1990, 5, 12),
             City = "Zagreb",
             Country = "HR",
@@ -87,7 +87,7 @@ public class Employee_UnitTests
     {
         string dataString = "1; 245;testSecondName;testLastName;pos1;"
                  + "HR;Zagreb;zagrebEmployee@email.com;+3859888994653;12345;05/12/1990;True";
-        
+
 
         var ex = Assert.Throws<ArgumentException>(() =>
         {
