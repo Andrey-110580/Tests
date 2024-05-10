@@ -163,15 +163,70 @@ namespace ConsoleTestsAlgoritm1
             string myStr7 = "C:'\'WINDOWS'\'MEDIA'\'work.wav";
             Console.WriteLine(myStr7);
 
-          string[] Mywords7 = myStr7.Split("'\'");
+            string[] Mywords7 = myStr7.Split("'\'");
             foreach (var item in Mywords7)
             {
                 Console.WriteLine(item);
             }
 
 
-            // 
+            // Напишите программу, которая преобразует строку, содержащую имя, отчество и фамилию человека,
+            // к форме < фамилия > < инициалы >
+            //Входная строка содержит имя, отчество и фамилию, разделённые одиночными пробелами.
+            //Donald Ervin Knuth
+            //Knuth D.E.
 
+            string longName = "Donald Ervin Knuth";
+            string[] words8 = longName.Split(" ");
+            char[] chars81 = words8[1].ToCharArray();
+            char[] shars82 = words8[2].ToCharArray();
+            string ShotName = words8[0] + " " + chars81[0] + "." + shars82[0] + ".";
+            Console.WriteLine("longName is " + longName);
+            Console.WriteLine("ShotName is " + ShotName);
+
+
+            //Напишите программу, которая заменяет в символьной строке все вхождения одной подстроки на другую. Используйте процедуру.
+            // Первая входная строка содержит символьную строку, которую нужно обработать.
+            // Во второй и третьей строках записаны соответственно подстрока-образец (которую нужно менять) и подстрока-замена.
+            // Программа должна вывести обработанную символьную строку, в которой все вхождения подстроки-образца заменены на подстроку-замену.
+            //abcDEFabcgh  
+            //abc
+            //XYZ
+            //XYZDEFXYZgh
+            string oldStr9 = "abcDEFabcgh";
+            string subStrOld = "abc";
+            string subStrNew = "XYZ";
+
+            static string NewStr9(string str, string str1, string str2)
+            {
+                string newStr9 = str.Replace(str1, str2);
+                return newStr9;
+            }
+
+            string str9 = NewStr9(oldStr9, subStrOld, subStrNew);
+            Console.WriteLine("Old string is " + oldStr9);
+            Console.WriteLine("New string is " + str9);
+
+
+
+            //Напишите программу, которая определяет, сколько раз встречается подстрока в символьной строке.
+            //Первая строка содержит исходную символьную строку. Вторая строка содержит подстроку-образец.
+            //Программа должна вывести одно число – количество вхождений подстроки-образца в исходную строку.
+            //abcXYZabcytasdabcas
+            //abc
+            //3
+            string myString10 = "abcXYZabcytasdabcasabc";
+            string subStr10 = "abc";
+            int count10 = 0;
+            for (int i = 0; i <= myString10.Length - subStr10.Length; i++)
+            {
+                if (myString10.Contains(subStr10))
+                { count10++; 
+                    i+=3;
+                }
+                
+            }
+            Console.WriteLine("ZOPA " + count10);
 
 
 
