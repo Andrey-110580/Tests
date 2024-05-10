@@ -71,9 +71,9 @@ namespace ConsoleTestsAlgoritm1
             int index = myStr3.LastIndexOf(' ');
             Console.WriteLine("index : " + index);
 
-            char[] charsNew3 = new char[b3-index-1];
+            char[] charsNew3 = new char[b3 - index - 1];
             int a3 = 0;
-            for (int i = index+1; i < b3; i++)
+            for (int i = index + 1; i < b3; i++)
             {
                 charsNew3[a3] = chars3[i];
                 a3++;
@@ -87,10 +87,10 @@ namespace ConsoleTestsAlgoritm1
 
 
             string myStr4 = "j32odweqjc ij324o oj32 j32odweqjc grd";
-             int countWords4 =0;
+            int countWords4 = 0;
             string[] myWords = myStr4.Split(new char[] { ' ' });
             int maxLenght = myWords[0].Length;
-            for (int i = 1;i < myWords.Length;i++)
+            for (int i = 1; i < myWords.Length; i++)
             {
                 if (maxLenght < myWords[i].Length)
                 {
@@ -98,15 +98,83 @@ namespace ConsoleTestsAlgoritm1
                 }
             }
             Console.WriteLine("Max Long Words :");
-            for (int i = 0;i < myWords.Length;i++)
-            { 
-                if(myWords[i].Length == maxLenght)
+            for (int i = 0; i < myWords.Length; i++)
+            {
+                if (myWords[i].Length == maxLenght)
                 {
                     countWords4++;
                     Console.WriteLine(myWords[i]);
                 }
             }
             Console.WriteLine("Count Max Words : " + countWords4);
+
+            //Напишите программу, которая определяет, является ли введённое слово (без пробелов) палиндромом,
+            //то есть верно ли, что оно читается одинаково слева направо и справа налево.
+
+            Console.WriteLine("Plese Enter Word");
+            string myWord = Console.ReadLine();
+            int lenghtMyWord = myWord.Length;
+            //           char[]chars5 = myWord.ToCharArray();
+            int lengthFor = lenghtMyWord / 2;
+
+            for (int i = 0; i < lengthFor; i++)
+            {
+                if (myWord[i] != myWord[lenghtMyWord - 1 - i])
+                {
+                    Console.WriteLine("This word " + myWord + " is not PALINDROM");
+                    break;
+                }
+                else { Console.WriteLine("This word " + myWord + " is PALINDROM"); }
+            }
+
+            //Напишите программу, которая определяет, является ли заданная строка
+            //(возможно, содержащая пробелы) палиндромом, то есть верно ли,
+            //что она после удаления пробелов читается одинаково слева направо и справа налево.
+            //Входная строка – последовательность символов, возможно, содержащая пробелы.   ka za k
+            //Программа должна вывести слово 'YES', если введённая строка – палиндром, и слово 'NO', если она не является палиндромом.
+
+
+            Console.WriteLine("Plese Enter Words");
+            string myWord6 = Console.ReadLine();
+            string newString6 = myWord6.Replace(" ", "");
+            int LenNewStr6For = newString6.Length / 2;
+
+            for (int i = 0; i < LenNewStr6For; i++)
+            {
+                if (newString6[i] != newString6[newString6.Length - 1 - i])
+                {
+                    Console.WriteLine("This string " + myWord6 + " is not PALINDROM");
+                    break;
+                }
+                else { Console.WriteLine("This string " + myWord6 + " is PALINDROM"); }
+            }
+
+            //В операционной системе Windows путь к файлу состоит из имени логического диска и названий каталогов,
+            //в которых находится этот файл. Части пути разделены знаками "\" (обратный слэш).
+            //Требуется разбить заданный путь к файлу на части — имя диска и названия каталогов.  
+            //Программа должна вывести имя диска и названия всех каталогов, составляющих путь.
+            //Каждый элемент выводится в отдельной строке.
+            //C:\WINDOWS\MEDIA\work.wav
+            //C:
+            //WINDOWS
+            //MEDIA
+            //work.wav
+
+            string myStr7 = "C:'\'WINDOWS'\'MEDIA'\'work.wav";
+            Console.WriteLine(myStr7);
+
+          string[] Mywords7 = myStr7.Split("'\'");
+            foreach (var item in Mywords7)
+            {
+                Console.WriteLine(item);
+            }
+
+
+            // 
+
+
+
+
 
 
             Console.ReadKey();
