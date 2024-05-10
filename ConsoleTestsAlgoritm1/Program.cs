@@ -215,18 +215,19 @@ namespace ConsoleTestsAlgoritm1
             //abcXYZabcytasdabcas
             //abc
             //3
-            string myString10 = "abcXYZabcytasdabcasabc";
+            string myString10 = "abcXYZabcytasdabcas";
             string subStr10 = "abc";
             int count10 = 0;
-            for (int i = 0; i <= myString10.Length - subStr10.Length; i++)
+            int lenght10 = myString10.Length;
+
+            for (int i = 0; i < myString10.Length; i++)
             {
-                if (myString10.Contains(subStr10))
-                { count10++; 
-                    i+=3;
-                }
-                
+                int index10 = myString10.IndexOf(subStr10,i,lenght10-i);
+                Console.WriteLine(index10);
             }
-            Console.WriteLine("ZOPA " + count10);
+                
+
+           Console.WriteLine("ZOPA " + count10);
 
 
 
