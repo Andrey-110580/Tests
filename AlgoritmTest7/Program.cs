@@ -15,10 +15,10 @@
             //MEDIA
             //work.wav
 
-            string myStr7 = "C:'\'WINDOWS'\'MEDIA'\'work.wav";
+            string myStr7 = "C:\\WINDOWS\\MEDIA\\work.wav";
             Console.WriteLine(myStr7);
 
-            string[] Mywords7 = myStr7.Split("'\'");
+            string[] Mywords7 = myStr7.Split("\\");
             foreach (var item in Mywords7)
             {
                 Console.WriteLine(item);

@@ -33,8 +33,8 @@
             }
             string newStr2 = String.Concat(chars2);
 
-            Console.WriteLine("Old data : " + myStr1);
-            Console.WriteLine("New data : " + newStr2);
+            Console.WriteLine("Old data: " + myStr1);
+            Console.WriteLine("New data: " + newStr2);
 
             Console.ReadKey();
         }

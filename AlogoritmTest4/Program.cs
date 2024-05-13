@@ -20,13 +20,20 @@
                     maxLenght = myWords[i].Length;
                 }
             }
-            Console.WriteLine("Max Long Words :");
+            Console.WriteLine("Max Long Words:");
             for (int i = 0; i < myWords.Length; i++)
             {
                 if (myWords[i].Length == maxLenght)
                 {
                     countWords4++;
+                }
+            }
+            for (int i = 0; i < myWords.Length; i++)
+            {
+                if (myWords[i].Length == maxLenght)
+                {
                     Console.WriteLine(myWords[i]);
+                    break;
                 }
             }
             Console.WriteLine("Count Max Words : " + countWords4);
