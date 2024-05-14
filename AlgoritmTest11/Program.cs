@@ -20,29 +20,28 @@
 
             string fileName1 = "qwerty";
             string fileExtension1 = "exe";
-            string fileFullName1 = fileName1+'.'+ fileExtension1;
+            string fileFullName1 = fileName1 + '.' + fileExtension1;
             Console.WriteLine(fileFullName1);
 
             string fileName2 = "qwetry.old.pas";
             string fileExtention2 = "html";
             int index = 0;
-            char[]chars = fileName2.ToCharArray();
-            for (int i = chars.Length; i > 0; i--)
+            char[] chars = fileName2.ToCharArray();
+            for (int i = chars.Length - 1; i >= 0; i--)
             {
                 if (chars[i] == '.')
                 {
                     index = i;
-                    break;
+                      break;
                 }
-
             }
-            char[] newchars = new char[index];
-            for (int i = 0;i <= index; i++) 
+            char[] newchars = new char[index+1];
+            for (int i = 0; i <= index; i++)
             {
-                chars[i] = newchars[i];
+                newchars[i] =chars[i];
             }
             string newFileName2 = new string(newchars);
-            string fileFullName2 = newFileName2+ fileExtention2;
+            string fileFullName2 = newFileName2 + fileExtention2;
             Console.WriteLine(fileFullName2);
 
 
