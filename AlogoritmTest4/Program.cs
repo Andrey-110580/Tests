@@ -9,34 +9,67 @@
             //Если слов максимальной длины несколько — вывести первое встретившееся слово максимальной длины.
 
 
-            string myStr4 = "j32odweqjc ij324o oj32 j32odweqjc grd";
-            int countWords4 = 0;
-            string[] myWords = myStr4.Split(new char[] { ' ' });
-            int maxLenght = myWords[0].Length;
-            for (int i = 1; i < myWords.Length; i++)
+            string myStr4 = "j32odweqjc   ij324o oj32 j32odweqjc grd";
+            int lenght = myStr4.Length;
+            int countSpace4 = 0;
+            //нахожу количество пробелов
+            for (int i = 0; i < myStr4.Length; i++)
             {
-                if (maxLenght < myWords[i].Length)
+                if (myStr4[i] == ' ' && i != 0 && myStr4[i - 1] != ' ')
                 {
-                    maxLenght = myWords[i].Length;
+                    countSpace4++;
                 }
             }
-            Console.WriteLine("Max Long Words:");
-            for (int i = 0; i < myWords.Length; i++)
+
+            if (myStr4[myStr4.Length - 1] == ' ')
             {
-                if (myWords[i].Length == maxLenght)
+                countSpace4--;
+            }
+
+            Console.WriteLine("countWords4 = " + countSpace4);
+            // нахожу индексы пробелов и записываем в массив
+            int[] indexes = new int[countSpace4];
+            int ind = 0;
+            for (int i = 0; i < myStr4.Length; i++)
+            {
+                if (myStr4[i] == ' ' && i != 0 && myStr4[i - 1] != ' ')
                 {
-                    countWords4++;
+                    indexes[ind] = i;
+                    ind++;
                 }
             }
-            for (int i = 0; i < myWords.Length; i++)
+            // нахожу длину отдельных слов в строке
+            int[] lenghtsWords = new int[countSpace4 + 1];
+
+            for (int j = 0; j < countSpace4 + 1; j++)
             {
-                if (myWords[i].Length == maxLenght)
+                if (j == 0)
                 {
-                    Console.WriteLine(myWords[i]);
-                    break;
+                    lenghtsWords[j] = indexes[j];
+                }
+                if  (j == countSpace4)
+                {
+                    lenghtsWords[j] = myStr4.Length - indexes[j - 1];
+                }
+                else
+                {
+                    lenghtsWords[j] = indexes[j] - indexes[j - 1];
                 }
             }
-            Console.WriteLine("Count Max Words : " + countWords4);
+
+            for (int i = 0; i < lenghtsWords.Length; i++)
+            {
+                Console.WriteLine("lenghtsWords =" + lenghtsWords[i]);
+            }
+                // создаю список массивов чар
+               // List<char[]> words;
+
+
+
+
+
+
+            
 
             Console.ReadKey();
         }
