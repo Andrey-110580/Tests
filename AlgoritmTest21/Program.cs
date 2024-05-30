@@ -7,32 +7,21 @@
             //Входная строка содержит произвольную последовательность символов. 
             //Программа должна вывести первое слово этой строки.
 
-            string myStr1 = "j32odweqjc ij324o oj32";
-            char[] chars1 = myStr1.ToCharArray();
-            int b = myStr1.Length;
-            int count = 0;
+            string myStr1 = "  j32odweqjc ij324o oj32";
+      
+            int i = 0;
+            while (i < myStr1.Length && myStr1[i++] == ' ') ;          
+            int start = --i;
+            while (i < myStr1.Length && myStr1[i++] != ' ') ;
 
-            for (int i = 0; i < b; i++)
+            char[] chars = new char[i -start];
+            for (int j = 0; start <i; j++)
             {
-                if (chars1[i] != ' ')
-                {
-                    count++;
-                }
-                else
-                {
-                    count = i;
-                    break;
-                }
-            }
-            Console.WriteLine(count);
-            char[] chars2 = new char[count];
+                chars[j] = myStr1[start];
+                start++;
+            }           
 
-            for (int i = 0; i < count; i++)
-            {
-                chars2[i] = chars1[i];
-            }
-            string newStr2 = String.Concat(chars2);
-
+            string newStr2 = new string(chars);
             Console.WriteLine("Old data: " + myStr1);
             Console.WriteLine("New data: " + newStr2);
 

@@ -9,20 +9,31 @@
             //Программа должна вывести последнее слово этой строки.
 
             string myStr3 = "j32odweqjc ij324o oj32";
-            char[] chars3 = myStr3.ToCharArray();
-            int b3 = myStr3.Length;
-            int index = myStr3.LastIndexOf(' ');
-            Console.WriteLine("index : " + index);
-
-            char[] charsNew3 = new char[b3 - index - 1];
-            int a3 = 0;
-            for (int i = index + 1; i < b3; i++)
+            int lastIndex = 0;
+            // ищем пробел с конца строки
+            for (int i = myStr3.Length-1; i >= 0; i--)
             {
-                charsNew3[a3] = chars3[i];
-                a3++;
+                if (myStr3[i] == ' ' && myStr3[i] != myStr3[i - 1]) // если строка заканчивается пробелами - мы их не считаем
+                {
+                    lastIndex = i+1;                   
+                    break;
+                }
             }
-            string myNewStr3 = String.Concat(charsNew3);
-            Console.WriteLine("Lost Word : " + myNewStr3);
+            Console.WriteLine("lastIndex " + lastIndex);
+
+            char[] chars3 = new char[myStr3.Length - lastIndex];
+            int j = 0;
+            for (int i = lastIndex; i < myStr3.Length; i++)
+            {
+                             
+                    chars3[j] = myStr3[i];
+                if (j < chars3.Length-1)
+                    j++;                
+            }
+            string lastWord = new string(chars3);
+            Console.WriteLine("Last Word : " + lastWord); 
+            
+ 
 
             Console.ReadKey();
         }

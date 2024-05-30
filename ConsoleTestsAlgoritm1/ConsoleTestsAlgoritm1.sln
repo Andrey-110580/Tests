@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTestsAlgoritm1", "ConsoleTestsAlgoritm1.csproj", "{E9131003-A10A-48D4-9E05-5454A262AD04}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgoritmTest21", "..\AlgoritmTest21\AlgoritmTest21.csproj", "{AED25601-A8E8-4368-B791-2F54165E44BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgoritmTest2", "..\AlgoritmTest21\AlgoritmTest2.csproj", "{AED25601-A8E8-4368-B791-2F54165E44BD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgoritmTest3", "..\AlgoritmTest3\AlgoritmTest3.csproj", "{90AC9078-0B8B-41FA-9FFB-1846FF1AC33E}"
 EndProject
@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgoritmTest10", "..\Algori
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgoritmTest11", "..\AlgoritmTest11\AlgoritmTest11.csproj", "{92AB7D01-C40D-4C35-8C6D-320BEF6E5EDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoritmTest12", "..\AlgoritmTest12\AlgoritmTest12.csproj", "{AE7B4B9A-F658-4B96-96C2-52F06CB60EAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgoritmTest12", "..\AlgoritmTest12\AlgoritmTest12.csproj", "{AE7B4B9A-F658-4B96-96C2-52F06CB60EAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

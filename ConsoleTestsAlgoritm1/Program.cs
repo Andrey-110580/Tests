@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.ComponentModel.Design;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ConsoleTestsAlgoritm1
 {
@@ -13,23 +14,31 @@ namespace ConsoleTestsAlgoritm1
             //а во второй – количество выполненных замен.
 
             string myStr = "klhfesfE4ADa";
-            char[] chars = myStr.ToCharArray();
-            int a = myStr.Length;
-            int count1 = 0;
-            for (int i = 0; i < a; i++)
+            int count11 = 0;
+            char[] chars = new char[myStr.Length];
+            for (int i = 0; i < myStr.Length; i++)
             {
-                if (chars[i] == 'a')
+                if (myStr[i] == 'a')
                 {
                     chars[i] = 'b';
-                    count1++;
+                    count11++;
+                }
+                else
+                {
+                    chars[i] = myStr[i];
                 }
             }
-            string newStr = String.Concat(chars);
+
+            string newStr = new string(chars);
             Console.WriteLine("Old data : " + myStr);
             Console.WriteLine("New data : " + newStr);
-            Console.WriteLine(" Count : " + count1);
+            Console.WriteLine(" Count : " + count11);
 
             Console.ReadKey();
         }
+
+
+
+
     }
 }
